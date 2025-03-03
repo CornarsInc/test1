@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приветствие</title>
+</head>
+<body>
+    <h1>Привет! Введи свое имя:</h1>
+    <input type="text" id="nameInput" placeholder="Твоё имя">
+    <button onclick="generateMessage()">Получить предсказание</button>
+    <p id="result"></p>
+
+    <script>
+        function generateMessage() {
+            let имя = document.getElementById("nameInput").value;
+            if (!имя) {
+                alert("Введите имя!");
+                return;
+            }
+
+            let случайноеЧисло = Math.floor(Math.random() * 100) + 1;
+            let сообщение = `Привет, ${имя}! Твое счастливое число: ${случайноеЧисло}. `;
+
+            if (случайноеЧисло > 50) {
+                сообщение += "Сегодня твой день, используй его по максимуму! 🚀";
+            } else {
+                сообщение += "Возможно, день будет спокойным, но это тоже хорошо. 😊";
+            }
+
+            document.getElementById("result").innerText = сообщение;
+        }
+    </script>
+</body>
+</html>
